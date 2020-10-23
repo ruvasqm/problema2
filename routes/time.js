@@ -50,6 +50,9 @@ function validateTime(time) {
 function addTime(time, offset) {
   // validation delegated to previous functions
   let adjustedTime = time + offset * 3600;
+  if (adjustedTime >= 24 * 3600) adjustedTime -= 24 * 3600;
+  else if (adjustedTime < 0) adjustedTime += 24 * 3600;
+
   let [hours, mins, secs] = [
     ((adjustedTime - (adjustedTime % 3600)) / 3600).toString(),
     (((adjustedTime % 3600) - ((adjustedTime % 3600) % 60)) / 60).toString(),
