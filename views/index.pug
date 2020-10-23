@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css' integrity='sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK' crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js' integrity='sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD' crossorigin='anonymous')
+    script(src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js")
+  body
+    div#app.container
+      h1 Problema 2: UTC REST API
+      form(action="/api/time" method="POST" id="utc_form")
+        div.mb-3.row
+          div.col-4
+            label(for="time" class="form-label") Hora
+            input(type="text" class="form-control" id="time" name="time" pattern="^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$")
+        div.mb-3.row
+          div.col-4
+            label(for="offset" class="form-label") Huso horario
+            input(type="text" class="form-control" id="offset" name="offset" pattern="^[+|-]{1}(1[0-3]|[0-9])(\.5|\.75)?$")
+        input(type="submit" class="btn btn-primary btn-lg mr-4" value="Calcular")
+    script(src='/javascripts/app.js')
